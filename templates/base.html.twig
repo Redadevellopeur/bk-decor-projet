@@ -1,19 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		{# Google Font #}
+
+		{# FONT AWESOME #}
+		<link
+		rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> {# Import Boostrap #}
+		<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+		{# Import twig Css #}
+		<link
+		rel="stylesheet" href="{{ asset('css/style-front.css') }}">
+
+		{# BLOCK STYLESHEETS #}
+		{% block stylesheets %}{% endblock %}
+		{# FIN BLOCK STYLESHEETS #}
+
+
+	</head>
+	<body>
+		{# NAVBAR  #}
+		<!-- Header -->
+			<header>
+			<!-- Navigation  Accessibilité-->
+				<nav class="navBar light-mode openNav" role="navigation"> <div class="navBar__logo">
+					BK DECOR
+				</div>
+				<ul class="navBar__links">
+					<li
+						class="navBar__link" id="acceuil">
+						{# ajout de la route home #}
+						<a href="{{ path('home') }}">
+							Accueil
+						</a>
+					</li>
+					<li class="navBar__link" id="savoir">
+						<a href="{{ path('nos_savoir_faire') }}">
+							Nos Savoir-Faire
+						</a>
+					</li>
+					<li class="navBar__link" id="realisation">
+						<a href="{{ path('nos_realisations') }}">
+							Nos Réalisations
+						</a>
+					</li>
+					<li class="navBar__link" id="devis">
+						<a href="{{ path('devis') }}">
+							Demande de Devis
+						</a>
+					</li>
+					<li class="navBar__link" id="contact">
+						<a href="{{ path('contact') }}">
+							Contact
+						</a>
+					</li>
+					<li class="navBar__link" id="membres">
+						<a href="">
+							<i class="fas fa-user"></i>
+						</a>
+					</li>
+				</ul>
+				<!-- Button NavBarBurger -->
+				<button class="burger">
+					<span class="bar"></span>
+				</button>
+			</nav>
+		</header>
+		<!-- Fin Header -->
+		{# FIN NAVBAR #}
+
+		{#  DEBUT BLOCK BODY #}
+
+		<!-- Container  -->
+			<div class="container-xl">
+                {% block body %}{% endblock %}
+			</div>
+				
+
+			{# FIN BLOCK BODY #}
+
+			<!-- JS  -->
+			{# Import de Bundle Js Boostrap #}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"> </script>
+
+			<!-- Import Js -->
+			<script src="{{ asset('js/style-front.js')}}"></script>
+			<!-- Import Jquery -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			{# DEBUT BLOCK JS #}
+			{% block javascripts %}{% endblock %}
+			{# FIN BLOCK JS #}
+
+	</body>
+
+	<!-- Footer -->
+	
+	<!-- Fin Footer -->
+	</html>

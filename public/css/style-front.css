@@ -1,0 +1,264 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+/* Creation Variable */
+:root {
+  --font-size: 1rem;
+}
+
+.light-mode {
+  --navbar-color: #222;
+  --navbar-bg-color: #f0f0f0;
+}
+
+.dark-mode {
+  --navbar-color: #fff;
+  --navbar-bg-color: #000;
+}
+
+.green-text {
+  --green-text-color: rgba(155, 191, 99, 1);
+}
+.green-bg {
+  --green-bg-color: rgba(155, 191, 99, 1);
+}
+.white-bg {
+  --white-bg-color: rgba(255, 255, 255, 1);
+}
+
+/* Reset Page Initial */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Basic Style  */
+body {
+  font-size: var(--font-size);
+  font-family: "Playfair Display", serif;
+  background-color: var(--white-bg-color);
+  height: 50%;
+}
+
+/* .container {
+    padding: 1rem;
+} */
+
+/* NavBar */
+.navBar {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: var(--navbar-color);
+  background: var(--navbar-bg-color);
+}
+
+.navBar__links {
+  display: flex;
+}
+
+.navBar__link {
+  padding: 0 10px;
+}
+
+.navBar__link > a {
+  color: var(--navbar-color);
+  text-decoration: none;
+}
+
+.burger {
+  display: none;
+}
+
+/* Small Devices max768 */
+/* Effet de survol avec hover, Generé élément avant et apres la bar avec ::after et::before */
+@media screen and (max-width: 767.98px) {
+  .navBar__links {
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    height: calc(100vh - 65px);
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: var(--navbar-bg-color);
+    transition: all 0.5s ease-in-out;
+    z-index: 1000;
+  }
+
+  .openNav .navBar__links {
+    width: 100%;
+  }
+
+  .navBar__link {
+    transform: translateX(101%);
+  }
+
+  .openNav .navBar__link {
+    transform: translateX(0);
+  }
+
+  .navBar__link > a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.6rem;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .navBar__link > a:hover {
+    display: block;
+    padding-left: 2rem;
+    letter-spacing: 5px;
+  }
+
+  /* Toggle menu */
+  .burger {
+    display: block;
+    position: relative;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 45px;
+    height: 4px;
+    background: var(--navbar-color);
+    border-radius: 3px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Ouverture et fermeture barNav */
+  .openNav .bar {
+    width: 0;
+    background: transparent;
+  }
+
+  /* Generé élément avant et apres la bar avec ::after et::before */
+  .bar::before,
+  .bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 4px;
+    background: var(--navbar-color);
+    border-radius: 3px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .bar::before {
+    transform: translateY(-12px);
+  }
+
+  .bar::after {
+    transform: translateY(12px);
+  }
+
+  /*  Rotation bar */
+  .openNav .bar::before {
+    transform: rotate(45deg);
+  }
+
+  .openNav .bar::after {
+    transform: rotate(-45deg);
+  }
+
+  /* Animations */
+  .openNav #acceuil {
+    transition: all 1s ease-in-out;
+  }
+
+  .openNav #savoir {
+    transition: all 1.1s ease-in-out;
+  }
+
+  .openNav #realisation {
+    transition: all 1.2s ease-in-out;
+  }
+
+  .openNav #devis {
+    transition: all 1.4s ease-in-out;
+  }
+
+  .openNav #contact {
+    transition: all 1.5s ease-in-out;
+  }
+
+  .openNav #membres {
+    transition: all 1.6s ease-in-out;
+  }
+
+  /* fermeture @media screen and (max-width:767.98px) */
+}
+
+/* Medium Devices min768 */
+/* Effet de survol avec hover */
+@media screen and (min-width: 768px) {
+  .navBar__link > a::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 2px;
+    background: var(--navbar-color);
+    transition: width 0.4s;
+  }
+
+  .navBar__link:hover > a::after {
+    width: 100%;
+  }
+}
+
+/* css body  */
+
+span {
+  color: rgba(155, 191, 99, 1);
+}
+
+/* title */
+.title-green {
+  background: rgba(155, 191, 99, 1);
+}
+h1 {
+  color: white;
+}
+/* btn-green */
+.btn-green {
+  background-color: var(--green-bg-color);
+}
+
+/* footer  */
+.footer {
+  background-color: var(--green-bg-color);
+}
+
+/* background Image  et text */
+div.background {
+  background: url(../images/restaurantSalon.jpg) no-repeat;
+  height: 800px;
+}
+
+div.transbox {
+  margin: 50px;
+}
+
+div.transbox p {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 10px;
+  font-size: 40px;
+}

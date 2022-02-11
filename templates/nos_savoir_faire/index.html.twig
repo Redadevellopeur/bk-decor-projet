@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    NosSavoirFaire
+{% endblock %}
+
+{% block body %}
+
+    {# {{ dump(categories) }} #}
+
+    {% if categories is not null and categories|length > 0 %}
+
+        {% for category in categories %}
+
+            <div class="row">
+            <div class="col-6-offset-3">
+                <div class="card" style="width: 18rem; shadow my-3">
+                    <img src="{{ asset('images/category/' ~ category.imageName) }}" class="card-img-top" alt="{{ category.title|title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                            {{ category.title }}
+                            </h5>
+                            <p class="card-text">
+                            {{ category.description }}
+                            </p>
+                            <a href="{{ path('devis') }}" class="btn title-green">
+                            Obtenir un devis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>
+                Nos savoir faire ne sont pas repertoiriés pour l'instant.
+            </p>
+        {% endif %}
+
+    {% endblock %}
+    

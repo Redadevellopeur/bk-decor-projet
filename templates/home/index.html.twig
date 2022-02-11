@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Home
+
+
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class="row img-bg">
+			<div class="background">
+				<div class="transbox">
+					<p>Rénover son bien
+						<span>AMELIORE</span>
+						son confort et
+						<span>PRÉSERVE</span>
+						sa valeur
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<button type="button" class="btn btn-success">
+					Obtenir un devis
+				</button>
+
+				{# Fin carousel #}
+			</section>
+
+			{% if categories is not null and categories|length > 0 %}
+				{% for category in categories %}<!-- Block Html -->
+
+					<!-- Fin Block Html -->
+
+				{% endfor %}
+
+			{% endif %}
+
+		{% endblock %}
